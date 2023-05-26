@@ -36,7 +36,7 @@ public class SellerServiceImplementation implements SellerService {
         Seller seller = sellerRepository.findByEmailId(emailId);
         SellerResponse sellerResponse;
         try {
-            sellerResponse = SellerTransformer.sellerToSellerResponse(seller);
+            sellerResponse = SellerTransformer.sellerToSellerResponse(seller).;
         }
         catch (Exception e)
         {
@@ -45,21 +45,10 @@ public class SellerServiceImplementation implements SellerService {
         return sellerResponse;
     }
 
-    public SellerResponse getSellerById(String emailId) throws EmailIdNotPresentException {
-        Seller seller = sellerRepository.findByEmailId(emailId);
-        SellerResponse sellerResponse;
-        try {
-            sellerResponse = SellerTransformer.sellerToSellerResponse(seller);
-        }
-        catch (Exception e)
-        {
-            throw new EmailIdNotPresentException("Invalid Email ID!!!");
-        }
-        return sellerResponse;
-    }
 
+    @Override
     public SellerResponse getSellerById(Integer id) throws IdNotPresentException {
-        Optional<Seller> seller = sellerRepository.findById(id);
+        Seller seller = sellerRepository.findById(id).get();
         SellerResponse sellerResponse;
         try {
            sellerResponse = SellerTransformer.sellerToSellerResponse(seller);
@@ -69,5 +58,6 @@ public class SellerServiceImplementation implements SellerService {
             throw new IdNotPresentException("Invalid ID!!!");
         }
         return sellerResponse;
+
     }
 }

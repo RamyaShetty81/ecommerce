@@ -20,13 +20,13 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    Integer id;
 
     String name;
 
-    int quantity;
+    Integer quantity;
 
-    int price;
+    Integer price;
 
     @Enumerated(EnumType.STRING)
     Category category;
@@ -39,7 +39,7 @@ public class Product {
     @JoinColumn
     Seller seller;
 
-    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     List<Item> itemList = new ArrayList<>();
 
 }

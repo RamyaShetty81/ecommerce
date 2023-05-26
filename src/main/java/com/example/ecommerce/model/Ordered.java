@@ -8,7 +8,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.data.annotation.Id;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,7 +22,7 @@ import java.util.List;
 public class Ordered {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    Integer id;
 
     String orderNo;
 
@@ -32,7 +31,7 @@ public class Ordered {
     @CreationTimestamp
     Date orderDate;
 
-    Integer totalVaue;
+    Integer totalValue;
 
     String cardUsed;
 

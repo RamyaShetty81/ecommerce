@@ -17,12 +17,12 @@ public class Card {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    Integer id;
 
     @Column(unique = true,nullable = false)
     String cardNo;
 
-    int cvv;
+    Integer cvv;
 
     Date expiryDate;
 

@@ -1,5 +1,6 @@
 package com.example.ecommerce.dto.responseDto;
 
+import com.example.ecommerce.Enum.Status;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -8,10 +9,13 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Builder
-public class SellerResponse {
+public class ProductResponse {
 
-    String name;
+    String productName;
 
-    Integer age;
+    String sellerName;
 
+    Integer quantity;
+
+    Status status;
 }

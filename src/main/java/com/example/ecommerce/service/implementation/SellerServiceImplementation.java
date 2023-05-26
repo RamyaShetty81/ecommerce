@@ -12,6 +12,8 @@ import com.example.ecommerce.service.SellerService;
 import com.example.ecommerce.transformer.SellerTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +25,7 @@ public class SellerServiceImplementation implements SellerService {
     SellerRepository sellerRepository;
 
     @Override
-    public SellerResponse addSeller(SellerRequest sellerRequest) throws EmailAlreadyExistsException {
+    public SellerResponse addSeller( SellerRequest sellerRequest) throws EmailAlreadyExistsException {
 
         if(sellerRepository.findByEmailId(sellerRequest.getEmailId())!=null)
             throw new EmailAlreadyExistsException("Email Id is already registered");
@@ -36,7 +38,7 @@ public class SellerServiceImplementation implements SellerService {
     }
 
     @Override
-    public SellerResponse getSellerByEmailId(String emailId) throws EmailIdNotPresentException {
+    public SellerResponse getSellerByEmailId( String emailId) throws EmailIdNotPresentException {
         Seller seller = sellerRepository.findByEmailId(emailId);
         SellerResponse sellerResponse;
         try {

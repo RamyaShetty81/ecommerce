@@ -2,7 +2,6 @@ package com.example.ecommerce.controller;
 
 import com.example.ecommerce.dto.requestDto.SellerRequest;
 import com.example.ecommerce.dto.responseDto.SellerResponse;
-import com.example.ecommerce.exception.EmailIdNotPresentException;
 import com.example.ecommerce.service.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/seller")
-public class sellerController {
+public class SellerController {
 
     @Autowired
     SellerService sellerService;
@@ -96,7 +95,7 @@ public class sellerController {
         }
     }
     @GetMapping("/get-by-age")
-    public ResponseEntity getSellersByAge(Integer age)
+    public ResponseEntity getSellersByAge(@RequestParam(name = "age")Integer age)
     {
         try{
             List<SellerResponse> sellerResponseList = sellerService.getSellersByAge(age);

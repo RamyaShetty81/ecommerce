@@ -11,4 +11,6 @@ import java.util.Optional;
 public interface SellerRepository extends JpaRepository<Seller,Integer> {
     Seller findByEmailId(String emailId);
     List<Seller> findByAgeGreaterThanEqual(Integer age);
+
+
 }

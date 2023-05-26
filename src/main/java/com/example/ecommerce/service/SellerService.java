@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public interface SellerService {
 
-    public SellerResponse addSeller(SellerRequest sellerRequestDto) throws EmailAlreadyExistsException;
+    public SellerResponse addSeller(SellerRequest sellerRequest) throws EmailAlreadyExistsException;
 
     public SellerResponse getSellerByEmailId(String emailId) throws EmailIdNotPresentException;
 

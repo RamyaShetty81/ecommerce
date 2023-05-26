@@ -36,7 +36,7 @@ public class SellerServiceImplementation implements SellerService {
         Seller seller = sellerRepository.findByEmailId(emailId);
         SellerResponse sellerResponse;
         try {
-            sellerResponse = SellerTransformer.sellerToSellerResponse(seller).;
+            sellerResponse = SellerTransformer.sellerToSellerResponse(seller);
         }
         catch (Exception e)
         {

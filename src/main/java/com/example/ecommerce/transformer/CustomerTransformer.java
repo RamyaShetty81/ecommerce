@@ -26,4 +26,12 @@ public class CustomerTransformer {
                 .build();
     }
 
+    public static Customer updateCustomerFromRequest(Customer customer, CustomerRequest customerRequest) {
+        customer.setName(customerRequest.getName());
+        customer.setAge(customerRequest.getAge());
+        customer.setAddress(customerRequest.getAddress());
+        customer.setMobileNo(customerRequest.getMobileNo());
+        customer.setEmail(customerRequest.getEmail());
+        return customer;
+    }
 }

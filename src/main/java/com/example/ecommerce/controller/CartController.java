@@ -8,6 +8,7 @@ import com.example.ecommerce.dto.responseDto.OrderResponse;
 import com.example.ecommerce.model.Item;
 import com.example.ecommerce.service.CartService;
 import com.example.ecommerce.service.ItemService;
+import com.example.ecommerce.service.implementation.ItemServiceImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +19,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/cart")
 public class CartController {
-
     @Autowired
     ItemService itemService;
+
+    @Autowired
+    ItemServiceImplementation itemServiceImplementation;
 
     @Autowired
     CartService cartService;

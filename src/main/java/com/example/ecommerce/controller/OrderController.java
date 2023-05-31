@@ -57,7 +57,7 @@ public class OrderController {
 
 
      @GetMapping("/{customerId}")
-     public ResponseEntity getOrdersForCustomer(@PathVariable String customerId) {
+     public ResponseEntity getOrdersForCustomer(@PathVariable Integer customerId) {
 
          List<OrderResponse> list;
          try {

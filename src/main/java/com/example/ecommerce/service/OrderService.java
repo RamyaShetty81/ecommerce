@@ -2,6 +2,7 @@ package com.example.ecommerce.service;
 
 import com.example.ecommerce.dto.requestDto.OrderRequest;
 import com.example.ecommerce.dto.responseDto.OrderResponse;
+import com.example.ecommerce.exception.CustomerNotExistException;
 import com.example.ecommerce.exception.IdNotPresentException;
 import com.example.ecommerce.model.Card;
 import com.example.ecommerce.model.Customer;
@@ -18,7 +19,7 @@ public interface OrderService {
 
     public OrderResponse placeDirectOrder(OrderRequest orderRequest) throws Exception;
 
-    List<OrderResponse> getOrdersForCustomer(String customerId);
+    List<OrderResponse> getOrdersForCustomer(Integer customerId) throws CustomerNotExistException;
 
     List<OrderResponse> getRecentOrders();
 

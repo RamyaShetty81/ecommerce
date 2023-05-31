@@ -9,10 +9,8 @@ import com.example.ecommerce.exception.InvalidCardException;
 import com.example.ecommerce.exception.InvalidItemIdException;
 import com.example.ecommerce.model.Cart;
 import com.example.ecommerce.model.Item;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 import java.util.List;
 

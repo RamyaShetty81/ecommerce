@@ -14,7 +14,9 @@ import com.example.ecommerce.repository.ProductRepository;
 import com.example.ecommerce.service.ItemService;
 import com.example.ecommerce.transformer.ItemTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ItemServiceImplementation implements ItemService {
     @Autowired
     CustomerRepository customerRepository;

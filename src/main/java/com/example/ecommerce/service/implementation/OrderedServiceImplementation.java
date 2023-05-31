@@ -140,8 +140,15 @@ public class OrderedServiceImplementation implements OrderService  {
 
 
     @Override
-    public List<OrderResponse> getOrdersForCustomer(String customerId) {
-        List<Ordered> orders = orderedRepository.findByCustomerId(customerId);
+    public List<OrderResponse> getOrdersForCustomer(Integer customerId) throws CustomerNotExistException {
+        Customer customer;
+        try{
+            customer = customerRepository.findById(customerId).get();
+        }
+        catch (Exception e){
+            throw new CustomerNotExistException("Customer Id is invalid !!");
+        }
+        List<Ordered> orders = orderedRepository.findByCustomer(customer);
 
         List<OrderResponse> orderResponses = new ArrayList<>();
         for (Ordered order : orders) {
@@ -149,6 +156,7 @@ public class OrderedServiceImplementation implements OrderService  {
         }
 
         return orderResponses;
+
     }
 
     @Override

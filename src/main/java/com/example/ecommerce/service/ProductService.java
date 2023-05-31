@@ -6,6 +6,7 @@ import com.example.ecommerce.dto.responseDto.ProductResponse;
 import com.example.ecommerce.exception.EmailIdNotPresentException;
 import com.example.ecommerce.exception.IdNotPresentException;
 import com.example.ecommerce.exception.NoSuchProductException;
+import com.example.ecommerce.model.Item;
 import com.example.ecommerce.model.Product;
 import org.springframework.stereotype.Service;
 
@@ -34,4 +35,5 @@ public interface ProductService {
     public List<ProductResponse> getAllProductsByPriceAndCategory(Integer price, Category category) throws NoSuchProductException;
 
 
+    void decreaseProductQuantity(Item item) throws Exception;
 }

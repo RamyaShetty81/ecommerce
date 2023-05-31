@@ -7,6 +7,7 @@ import com.example.ecommerce.dto.responseDto.ProductResponse;
 import com.example.ecommerce.exception.EmailIdNotPresentException;
 import com.example.ecommerce.exception.IdNotPresentException;
 import com.example.ecommerce.exception.NoSuchProductException;
+import com.example.ecommerce.model.Item;
 import com.example.ecommerce.model.Product;
 import com.example.ecommerce.model.Seller;
 import com.example.ecommerce.repository.ProductRepository;
@@ -170,7 +171,22 @@ public class ProductServiceImplementation implements ProductService {
         }
     }
 
+    @Override
+    public void decreaseProductQuantity(Item item) throws Exception {
 
+        Product product = item.getProduct();
+        int quantity  = item.getRequiredQuantity();
+        int currentQuantity = product.getQuantity();
+
+
+        if(quantity>currentQuantity) throw new Exception("Out of stock!!!");
+
+        product.setQuantity(currentQuantity-quantity);
+
+        if(product.getQuantity()==0) product.setStatus(Status.OUT_OF_STOCK);
+
+
+    }
 
 
     public List<ProductResponse> productListToProductResponseList(List<Product> products)
@@ -183,4 +199,6 @@ public class ProductServiceImplementation implements ProductService {
             return productResponses;
 
     }
+
+
 }

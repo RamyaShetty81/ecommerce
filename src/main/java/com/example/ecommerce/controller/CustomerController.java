@@ -60,7 +60,8 @@ public class CustomerController {
     }
 
     @PutMapping("/{email}")
-    public ResponseEntity<String> updateCustomerByEmail(@PathVariable String email, @RequestBody CustomerRequest customerRequest) {
+    public ResponseEntity<String> updateCustomerByEmail(@PathVariable String email,
+                                                        @RequestBody CustomerRequest customerRequest) {
         try {
             customerRequest.setEmail(email);
             String message = customerService.updateCustomerByEmail(customerRequest);
